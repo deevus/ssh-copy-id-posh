@@ -16,7 +16,6 @@
     COMMENT: Modified to work with Scoop.sh
     DEPENDENCIES: 
         ssh
-        gow
  .HELPURL
     http://stackoverflow.com
  .SEEALSO
@@ -93,7 +92,7 @@ trap { #Stop on all errors
     Write-Error "ERROR: $_"
 }
 
-$PlinkAndPath = $(which ssh)
+$PlinkAndPath = $((Get-Command -Name ssh).Source)
  
 #from http://serverfault.com/questions/224810/is-there-an-equivalent-to-ssh-copy-id-for-windows
 $Commands = @()
